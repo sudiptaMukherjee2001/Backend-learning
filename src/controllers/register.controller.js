@@ -66,6 +66,7 @@ const registerController = async (req, res, next) => {
         profile_image_localPath = req.files.profile_image[0].path;
         // Uploading file in cloudinary. So it will take some time that's why use async await or promises;
         cloudinary_profile_image = await uploadFileInCLoudinary(profile_image_localPath);
+
         console.log("CloudinaryFile", cloudinary_profile_image);
 
     }
