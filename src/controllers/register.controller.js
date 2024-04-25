@@ -84,8 +84,9 @@ const registerController = async (req, res, next) => {
     })
     console.log("User registered=======> ", User);
 
-    /* yah line main user/database main id se find karke  password or refershtoken ko  exclude kar raha hu select ke help se*/
-    const createdUser = await user.findById(User._id).select("-password -refreshToken")
+    const createdUser = await user.findById(User._id).select("-password -refreshToken")     /* yah line main user/database se id ko 
+    find karke  password or refershtoken ko  exclude kar raha hu select ke help se*/
+
     if (!createdUser) {
         throw new Error("Server Error");
     }

@@ -22,6 +22,7 @@ router.route("/register").post(
     ])
     ,
     registerController);
+router.route("/logIn").post(loginController)
 
 
 export default router;
