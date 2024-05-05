@@ -3,8 +3,13 @@ import { Router } from "express";
 const router = Router();
 //importing the controller file to use its functions.
 import registerController from "../controllers/register.controller.js";
-import loginController from "../controllers/login.controller.js";
+import {
+    genarateNewAccesstoken,
+    loginController,
+    logoutController
+} from "../controllers/login.controller.js";
 import { upload } from "../middelware/multer.middelware.js";
+import { verifyJwt } from "../middelware/auth.middelware.js";
 
 // router.post("/register", registerController); //Register a new user
 router.route("/register").post(
@@ -23,6 +28,8 @@ router.route("/register").post(
     ,
     registerController);
 router.route("/logIn").post(loginController)
+router.route("/logOut").post(verifyJwt, logoutController);
+router.route("/refresh-token").post(genarateNewAccesstoken)
 
 
 export default router;

@@ -47,7 +47,7 @@ userSchema.methods.genarateAccessToken = async function () {
             email: this.email
         },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: '1s' }, //token will expire in 1 hour
+        { expiresIn: '1m' }, //token will expire in 1 hour
     )
 
 }
@@ -58,7 +58,7 @@ userSchema.methods.genarateRefreshToken = async function () {
 
         },
         process.env.REFERSH_TOKEN_SECRET,
-        { expiresIn: '1s' }, //token will expire in 1 hour
+        { expiresIn: '2d' }, //token will expire in 1 hour
     )
 
 }
